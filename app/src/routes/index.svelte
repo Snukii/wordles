@@ -71,7 +71,6 @@
 
   const handleKeydown = async (event) => {
     const key = event.key;
-    console.log(key);
 
     if ($game.status === (GameStatus.Won || GameStatus.Lost)) {
       if (key === "r") {

@@ -60,6 +60,5 @@ export const startGame = async (): Promise<void> => {
 export const getWord = async (): Promise<void> => {
     const res = await fetch('/word');
     const json = await res.json()
-    console.log(json.word)
     word.set(json.word)
 }
