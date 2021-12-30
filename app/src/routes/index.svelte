@@ -122,12 +122,6 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <div
-  row="start-1 start-2 start-3 start-4 start-5 start-6"
-  display="hidden"
-  class="bg-true-gray-800"
-/>
-
-<div
   display="flex"
   flex="col"
   align="items-center"

@@ -7,14 +7,6 @@
   if (browser) import("virtual:windi-devtools");
 </script>
 
-<Header>
-  <main>
-    <slot />
-  </main>
-
-  <footer />
-
-  <style>
-  </style>
-</Header>
-<slot />
+<main>
+  <slot />
+</main>
