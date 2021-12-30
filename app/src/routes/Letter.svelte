@@ -10,6 +10,11 @@
 </script>
 
 <div
+  display="hidden"
+  class="bg-true-gray-800 bg-green-700 bg-yellow-700 bg-red-700"
+/>
+
+<div
   display="flex"
   text="6xl light-500"
   h="5rem"
