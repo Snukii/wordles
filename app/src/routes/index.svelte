@@ -137,14 +137,12 @@
   <div display="flex" text="true-gray-400" mx="auto" p="2">
     {#if $game.status === GameStatus.Won}
       <p text="5xl light-500">You guessed the word: {$word.toUpperCase()}</p>
-    {/if}
-    {#if row.status === RowStatus.Invalid}
-      <p text="5xl light-500">That's not a valid word!</p>
-    {/if}
-    {#if $game.status === GameStatus.Lost}
+    {:else if $game.status === GameStatus.Lost}
       <p text="5xl light-500">
         You didn't guess the word: {$word.toUpperCase()}
       </p>
+    {:else if row.status === RowStatus.Invalid}
+      <p text="5xl light-500">That's not a valid word!</p>
     {/if}
   </div>
   {#if $game}
@@ -166,12 +164,10 @@
     >
       {#if $game.status === GameStatus.Won}
         <p text="5xl light-500" on:click={() => startGame()}>New Word</p>
-      {/if}
-      {#if row.status === RowStatus.Invalid}
-        <p text="5xl light-500" opacity="0">silly fix lol</p>
-      {/if}
-      {#if $game.status === GameStatus.Lost}
+      {:else if $game.status === GameStatus.Lost}
         <p text="5xl light-500" on:click={() => startGame()}>Try again!</p>
+      {:else if row.status === RowStatus.Invalid}
+        <p text="5xl light-500" opacity="0">silly fix lol</p>
       {/if}
     </div>
   {/if}
