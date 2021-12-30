@@ -1,0 +1,20 @@
+<script lang="ts">
+  import Header from "$lib/header/Header.svelte";
+  import "../app.scss";
+
+  import "virtual:windi.css";
+  import { browser } from "$app/env";
+  if (browser) import("virtual:windi-devtools");
+</script>
+
+<Header>
+  <main>
+    <slot />
+  </main>
+
+  <footer />
+
+  <style>
+  </style>
+</Header>
+<slot />
