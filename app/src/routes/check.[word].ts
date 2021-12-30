@@ -1,9 +1,7 @@
 /** @type {import('@sveltejs/kit').RequestHandler} */
-
-import fs from 'fs'
 import { wordlist } from './word';
 
-export async function get({params}) {
+export async function get({params}): Promise<{ status: number; }> {
 
     const word = params['word'];
 
