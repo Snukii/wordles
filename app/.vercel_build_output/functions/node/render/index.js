@@ -6830,7 +6830,7 @@ __export(check_word_d711c827_exports, {
 });
 async function get({ params }) {
   const word2 = params["word"];
-  const file = import_fs.default.readFileSync("./fiveletterwords.json");
+  const file = import_fs.default.readFileSync("fiveletterwords.json");
   const words = JSON.parse(file.toString());
   let match = false;
   for (const index in words) {
@@ -6941,7 +6941,7 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 async function get3() {
-  const file = import_fs2.default.readFileSync("./fiveletterwords.json");
+  const file = import_fs2.default.readFileSync("fiveletterwords.json");
   const words = JSON.parse(file.toString());
   const randomNumber = randomIntFromInterval(0, Object.keys(words).length);
   const randomWord = words[randomNumber];

@@ -8,7 +8,7 @@ function randomIntFromInterval(min, max) { // min and max included
 
 export async function get() {
 
-    const file = fs.readFileSync('./fiveletterwords.json')
+    const file = fs.readFileSync('fiveletterwords.json')
 
     // parse JSON string to JSON object
     const words = JSON.parse(file.toString());

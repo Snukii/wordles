@@ -8,7 +8,7 @@ export async function get({params}) {
 
     // console.log(word)
 
-    const file = fs.readFileSync('./fiveletterwords.json')
+    const file = fs.readFileSync('fiveletterwords.json')
 
     // parse JSON string to JSON object
     const words = JSON.parse(file.toString());
