@@ -4,7 +4,7 @@
 </script>
 
 <script lang="ts">
-  import type { Letter, Row } from "$lib/types/game.type";
+  import type { Letter } from "$lib/types/game.type";
 
   export let letter: Letter;
 </script>

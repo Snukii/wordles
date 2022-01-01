@@ -12,6 +12,10 @@
 </script>
 
 <script lang="ts">
+  import Board from "./Board.svelte";
+
+  import StatusMessages from "$lib/StatusMessages.svelte";
+
   import {
     game,
     guess,
@@ -20,7 +24,7 @@
     word,
   } from "$lib/stores/game.store";
   import { GameStatus, RowStatus } from "$lib/types/game.type";
-  import Letter from "./Letter.svelte";
+  import Letter from "../lib/Letter.svelte";
 
   const alphabet = [
     "a",
@@ -126,41 +130,7 @@
   justify="content-center"
   h="100vh"
 >
-  <div display="flex" text="true-gray-400" mx="auto" p="2">
-    {#if $game.status === GameStatus.Won}
-      <p text="5xl light-500">You guessed the word: {$word.toUpperCase()}</p>
-    {:else if $game.status === GameStatus.Lost}
-      <p text="5xl light-500">
-        You didn't guess the word: {$word.toUpperCase()}
-      </p>
-    {:else if row.status === RowStatus.Invalid}
-      <p text="5xl light-500">That's not a valid word!</p>
-    {/if}
-  </div>
-  {#if $game}
-    <div display="grid" grid="cols-5 rows-6" gap="2">
-      {#each $game.rows as row, rowIndex (row)}
-        {#each row.letters as letter, letterIndex (rowIndex + "." + letterIndex)}
-          <div col="start-{letterIndex}">
-            <Letter {letter} />
-          </div>
-        {/each}
-      {/each}
-    </div>
-    <div
-      display="flex"
-      text="true-gray-400"
-      mx="auto"
-      p="2"
-      cursor="hover:pointer"
-    >
-      {#if $game.status === GameStatus.Won}
-        <p text="5xl light-500" on:click={() => startGame()}>New Word</p>
-      {:else if $game.status === GameStatus.Lost}
-        <p text="5xl light-500" on:click={() => startGame()}>Try again!</p>
-      {:else if row.status === RowStatus.Invalid}
-        <p text="5xl light-500" opacity="0">silly fix lol</p>
-      {/if}
-    </div>
-  {/if}
+  <StatusMessages>
+    <Board />
+  </StatusMessages>
 </div>
